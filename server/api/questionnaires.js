@@ -1,7 +1,15 @@
-export async function getById(res, req) {
+import { findOne } from "../src/components/questionnaires/Model.js";
 
+async function getBySlug(req, res) {
+  const { questionnaireSlug } = req.params;
+
+  const result = await findOne({ key: "slug", value: questionnaireSlug })
+
+  return res
+    .status(200)
+    .json(result);
 }
 
-export async function update(res, req) {
-
-}
+export default {
+  getBySlug
+};
