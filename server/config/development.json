@@ -1,6 +1,6 @@
 {
     "routes" : {
-        "api": "./api/router.js"
+        "api": "/api"
     },
     "server": { 
         "port": 4000
