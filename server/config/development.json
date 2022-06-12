@@ -1,0 +1,15 @@
+{
+    "routes" : {
+        "api": "./api/router.js"
+    },
+    "server": { 
+        "port": 4000
+    },   
+    "db": {
+     "mongoUri": "mongodb://admin:admin@localhost:27017/?authSource=questions",
+     "dbName": "quantilope",
+     "collections": {
+        "questionnaires": "questionnaires"
+     }
+    }
+}
