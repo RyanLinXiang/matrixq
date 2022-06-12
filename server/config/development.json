@@ -9,7 +9,8 @@
      "mongoUri": "mongodb://admin:admin@localhost:27017/?authSource=questions",
      "dbName": "quantilope",
      "collections": {
-        "questionnaires": "questionnaires"
+        "questionnaires": "questionnaires",
+        "answers": "answers"
      }
     }
 }
