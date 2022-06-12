@@ -1,9 +1,9 @@
 import "./App.css";
-import apiUrls from "./domain";
+import apiUrls from "./domain/api";
 import MatrixQuestionnaire from "./ui/containers/Questionnaires/MatrixQuestionnaire";
 
 function App() {
-  return <MatrixQuestionnaire apiUrl={apiUrls.getQuestionnairesbyId("fake")} />;
+  return <MatrixQuestionnaire apiUrl={apiUrls.getQuestionnairesById("matrix-01")} />;
 }
 
 export default App;
