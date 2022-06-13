@@ -1,4 +1,8 @@
 import { chunk } from "lodash";
+import { v4 as uuidv4 } from "uuid";
+
+export const firstRank = 0;
+export const lastRank = 10000000;
 
 export const isColumnHeader = ({ isRow, isHeader }) => !isRow && isHeader;
 
@@ -17,3 +21,74 @@ export const chunkAnswers = ({ answers, chunkLength }) =>
 
 export const getLongestLabelLength = ({ headers }) =>
   Math.max(...headers.map((header) => header.label.length));
+
+export const getRank = ({ previousRank = firstRank, nextRank = lastRank }) =>
+  Math.ceil((previousRank + nextRank) / 2);
+
+export const createNewColumnHeader = ({
+  rank,
+  headersLength,
+  questionnaireId
+}) => ({
+  _id: uuidv4(),
+  columnRank: rank,
+  label: `col${headersLength}`,
+  isRow: false,
+  isHeader: true,
+  imagePath: null,
+  questionnaireId: questionnaireId
+});
+
+export const createNewRowHeader = ({
+  rank,
+  headersLength,
+  questionnaireId
+}) => ({
+  _id: uuidv4(),
+  rowRank: rank,
+  label: `row${headersLength}`,
+  isRow: true,
+  isHeader: true,
+  imagePath: null,
+  questionnaireId: questionnaireId
+});
+
+export const createNewColumnAnswers = ({
+  rowRanks,
+  columnRank,
+  questionnaireId
+}) => {
+  const answers = [];
+
+  for (const rank of rowRanks) {
+    answers.push({
+      _id: uuidv4(),
+      rowRank: rank,
+      columnRank,
+      isChecked: false,
+      questionnaireId
+    });
+  }
+
+  return answers;
+};
+
+export const createNewRowAnswers = ({
+  columnRanks,
+  rowRank,
+  questionnaireId
+}) => {
+  const answers = [];
+
+  for (const rank of columnRanks) {
+    answers.push({
+      _id: uuidv4(),
+      columnRank: rank,
+      rowRank,
+      isChecked: false,
+      questionnaireId
+    });
+  }
+
+  return answers;
+};

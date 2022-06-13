@@ -50,6 +50,7 @@ const MatrixQuestionnaire = ({ apiUrl }) => {
   return (
     <div className="MatrixQuestionnaire">
       <MatrixAnswers
+        questionnaireId={questionnaire._id}
         apiUrl={apiUrls.getAnswersByQuestionnaireId(questionnaire._id)}
         handlersForChangingStatistics={handlersForChangingStatistics}
       />

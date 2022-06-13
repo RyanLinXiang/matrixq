@@ -8,12 +8,19 @@ import {
   sortByColumnRank,
   sortByRowRank,
   chunkAnswers,
-  getLongestLabelLength
+  firstRank,
+  lastRank,
+  getLongestLabelLength,
+  createNewColumnHeader,
+  createNewRowHeader,
+  createNewColumnAnswers,
+  createNewRowAnswers
 } from "./helpers";
 import ColumnHeader from "./ColumnHeader";
 import Row from "./Row";
 
 const MatrixAnswers = ({
+  questionnaireId,
   apiUrl,
   handlersForChangingStatistics: {
     setNumberOfRows,
@@ -29,28 +36,39 @@ const MatrixAnswers = ({
   const [answers, setAnswers] = useState([]);
   const [answersInChunks, setAnswersInChunks] = useState([]);
 
+  const sortDataByRank = ({
+    columnHeadersUnsorted,
+    rowHeadersUnsorted,
+    answersUnsorted
+  }) => {
+    columnHeadersUnsorted.sort(sortByColumnRank);
+    rowHeadersUnsorted.sort(sortByRowRank);
+    answersUnsorted.sort(sortByColumnRank).sort(sortByRowRank);
+
+    setColumnHeaders(columnHeadersUnsorted);
+    setRowHeaders(rowHeadersUnsorted);
+    setAnswers(answersUnsorted);
+    setAnswersInChunks(
+      chunkAnswers({
+        answers: answersUnsorted,
+        chunkLength: columnHeadersUnsorted.length
+      })
+    );
+  };
+
   useEffect(() => {
     if (isEmpty(data)) {
       return;
     }
+    const columnHeadersUnsorted = data.filter(isColumnHeader);
+    const rowHeadersUnsorted = data.filter(isRowHeader);
+    const answersUnsorted = data.filter(isAnswer);
 
-    const columnHeadersOnly = data.filter(isColumnHeader);
-    const rowHeadersOnly = data.filter(isRowHeader);
-    const answersOnly = data.filter(isAnswer);
-
-    columnHeadersOnly.sort(sortByColumnRank);
-    rowHeadersOnly.sort(sortByRowRank);
-    answersOnly.sort(sortByColumnRank).sort(sortByRowRank);
-
-    setColumnHeaders(columnHeadersOnly);
-    setRowHeaders(rowHeadersOnly);
-    setAnswers(answersOnly);
-    setAnswersInChunks(
-      chunkAnswers({
-        answers: answersOnly,
-        chunkLength: columnHeadersOnly.length
-      })
-    );
+    sortDataByRank({
+      columnHeadersUnsorted,
+      rowHeadersUnsorted,
+      answersUnsorted
+    });
   }, [isLoading]);
 
   if (isLoading || isEmpty(answersInChunks)) {
@@ -83,15 +101,88 @@ const MatrixAnswers = ({
     setLongestRowLabelLength(getLongestLabelLength({ headers: rowHeaders }));
   };
 
+  const handleAddColumn = (rank) => {
+    const updatedColumnHeaders = [
+      ...columnHeaders,
+      createNewColumnHeader({
+        rank,
+        headersLength: columnHeaders.length + 1,
+        questionnaireId
+      })
+    ];
+
+    const updatedAnswers = [
+      ...answers,
+      ...createNewColumnAnswers({
+        rowRanks: rowHeaders.map((row) => row.rowRank),
+        columnRank: rank,
+        questionnaireId
+      })
+    ];
+
+    setColumnHeaders(updatedColumnHeaders);
+
+    setAnswers(updatedAnswers);
+
+    sortDataByRank({
+      columnHeadersUnsorted: updatedColumnHeaders,
+      rowHeadersUnsorted: rowHeaders,
+      answersUnsorted: updatedAnswers
+    });
+
+    setNumberOfColumns(updatedColumnHeaders.length);
+  };
+
+  const handleAddRow = (rank) => {
+    const updatedRowHeaders = [
+      ...rowHeaders,
+      createNewRowHeader({
+        rank,
+        headersLength: rowHeaders.length + 1,
+        questionnaireId
+      })
+    ];
+
+    const updatedAnswers = [
+      ...answers,
+      ...createNewRowAnswers({
+        columnRanks: columnHeaders.map((column) => column.columnRank),
+        rowRank: rank,
+        questionnaireId
+      })
+    ];
+
+    setRowHeaders(updatedRowHeaders);
+
+    setAnswers(updatedAnswers);
+
+    sortDataByRank({
+      columnHeadersUnsorted: columnHeaders,
+      rowHeadersUnsorted: updatedRowHeaders,
+      answersUnsorted: updatedAnswers
+    });
+
+    setNumberOfRows(updatedRowHeaders.length);
+  };
+
   return (
     <div className="MatrixAnswers">
       <div className="MatrixAnswers-ColumnHeaders">
-        {columnHeaders.map((header) => (
+        {columnHeaders.map((header, index) => (
           <ColumnHeader
             key={header._id}
             label={header.label}
             handleEditColumnHeaderLabel={handleEditColumnHeaderLabel}
             id={header._id}
+            handleAddColumn={handleAddColumn}
+            previousRank={
+              columnHeaders.length === 0 ? firstRank : header.columnRank
+            }
+            nextRank={
+              index + 1 >= columnHeaders.length
+                ? lastRank
+                : columnHeaders[index + 1].columnRank
+            }
           />
         ))}
       </div>
@@ -104,6 +195,15 @@ const MatrixAnswers = ({
             answers={chunk}
             handleChangeAnswer={handleChangeAnswer}
             handleEditRowHeaderLabel={handleEditRowHeaderLabel}
+            handleAddRow={handleAddRow}
+            previousRank={
+              rowHeaders.length === 0 ? firstRank : rowHeaders[index].rowRank
+            }
+            nextRank={
+              index + 1 >= rowHeaders.length
+                ? lastRank
+                : rowHeaders[index + 1].rowRank
+            }
           />
         ))}
       </div>

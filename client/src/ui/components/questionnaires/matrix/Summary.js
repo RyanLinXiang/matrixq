@@ -7,21 +7,21 @@ const {
 
 const Summary = ({ statistics }) => (
   <div className="Summary">
-    <div className="Summary Summary-Statistic">
+    <div className="Summary-Statistic">
       <span className="StatisticLabel">
         {wordings.numberOfRows}
         {": "}
       </span>
       <span className="StatisticValue">{statistics.numberOfRows}</span>
     </div>
-    <div className="Summary Summary-Statistic">
+    <div className="Summary-Statistic">
       <span className="StatisticLabel">
         {wordings.numberOfColumns}
         {": "}
       </span>
-      <span className="StatisticValue">{statistics.numberOfRows}</span>
+      <span className="StatisticValue">{statistics.numberOfColumns}</span>
     </div>
-    <div className="Summary Summary-Statistic">
+    <div className="Summary-Statistic">
       <span className="StatisticLabel">
         {wordings.numberOfImagesUploaded}
         {": "}
@@ -30,14 +30,14 @@ const Summary = ({ statistics }) => (
         {statistics.numberOfImagesUploaded}
       </span>
     </div>
-    <div className="Summary Summary-Statistic">
+    <div className="Summary-Statistic">
       <span className="StatisticLabel">
         {wordings.longestRowLabelLength}
         {": "}
       </span>
       <span className="StatisticValue">{statistics.longestRowLabelLength}</span>
     </div>
-    <div className="Summary Summary-Statistic">
+    <div className="Summary-Statistic">
       <span className="StatisticLabel">
         {wordings.longestColumnLabelLength}
         {": "}
