@@ -25,28 +25,20 @@ export const getLongestLabelLength = ({ headers }) =>
 export const getRank = ({ previousRank = firstRank, nextRank = lastRank }) =>
   Math.ceil((previousRank + nextRank) / 2);
 
-export const createNewColumnHeader = ({
-  rank,
-  headersLength,
-  questionnaireId
-}) => ({
+export const createNewColumnHeader = ({ rank, questionnaireId }) => ({
   _id: uuidv4(),
   columnRank: rank,
-  label: `col${headersLength}`,
+  label: "newCol",
   isRow: false,
   isHeader: true,
   imagePath: null,
   questionnaireId: questionnaireId
 });
 
-export const createNewRowHeader = ({
-  rank,
-  headersLength,
-  questionnaireId
-}) => ({
+export const createNewRowHeader = ({ rank, questionnaireId }) => ({
   _id: uuidv4(),
   rowRank: rank,
-  label: `row${headersLength}`,
+  label: "newRow",
   isRow: true,
   isHeader: true,
   imagePath: null,

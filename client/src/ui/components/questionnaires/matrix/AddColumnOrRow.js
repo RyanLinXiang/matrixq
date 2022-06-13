@@ -1,8 +1,8 @@
 import React from "react";
 
 const AddColumnOrRow = ({ handleClick }) => (
-  <div onClick={handleClick}>
-    <span className="AddColumnOrRow">+</span>
+  <div className="AddColumnOrRow" onClick={handleClick}>
+    <span className="AddColumnOrRow-Label">+</span>
   </div>
 );
 
