@@ -1,0 +1,9 @@
+{
+    "summary": {
+        "numberOfRows": "Number of rows",
+        "numberOfColumns": "Number of columns",
+        "numberOfImagesUploaded": "Number of images uploaded",
+        "longestRowLabelLength": "Longest row label",
+        "longestColumnLabelLength": "Longest column label"
+    }
+}
