@@ -24,7 +24,7 @@ const useApi = ({ url, method = "GET", params = {} }) => {
 
   useEffect(() => {
     callApi();
-  }, []);
+  }, [isLoading]);
 
   return { isLoading, data };
 };
