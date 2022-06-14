@@ -1,0 +1,223 @@
+[
+    {
+        "_id": "9645ae7a-dbbd-4be1-9cd8-e3ba962d9cad",
+        "columnRank": 5000000,
+        "label": "col1",
+        "isRow": false,
+        "isHeader": true,
+        "imagePath": "uploads/9645ae7a-dbbd-4be1-9cd8-e3ba962d9cad.png",
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "32b2f194-aa3c-44c8-b250-5760caa7f94b",
+        "columnRank": 7500000,
+        "label": "col22",
+        "isRow": false,
+        "isHeader": true,
+        "imagePath": "uploads/32b2f194-aa3c-44c8-b250-5760caa7f94b.png",
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "89b4ba3a-1175-4436-9226-979ac8e78f2b",
+        "columnRank": 8750000,
+        "label": "col3",
+        "isRow": false,
+        "isHeader": true,
+        "imagePath": "uploads/89b4ba3a-1175-4436-9226-979ac8e78f2b.png",
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "c22b92bc-92a0-4fd6-8380-9c549e177363",
+        "columnRank": 9843750,
+        "label": "col7das",
+        "isRow": false,
+        "isHeader": true,
+        "imagePath": "uploads/c22b92bc-92a0-4fd6-8380-9c549e177363.png",
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "add20e02-bf4a-4e0e-95dd-1c380c49a67b",
+        "rowRank": 5000000,
+        "label": "row1",
+        "isRow": true,
+        "isHeader": true,
+        "imagePath": "uploads/add20e02-bf4a-4e0e-95dd-1c380c49a67b.png",
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "cbdd3f80-492e-4ff3-9312-ec0364a3c12e",
+        "rowRank": 7500000,
+        "label": "row2",
+        "isRow": true,
+        "isHeader": true,
+        "imagePath": "uploads/cbdd3f80-492e-4ff3-9312-ec0364a3c12e.png",
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "eb47037b-feff-4c4b-9782-d45fd818fa29",
+        "rowRank": 8750000,
+        "label": "row3",
+        "isRow": true,
+        "isHeader": true,
+        "imagePath": null,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "685ba645-0805-452c-9be5-ceaaacd3c71e",
+        "rowRank": 9375000,
+        "label": "row4",
+        "isRow": true,
+        "isHeader": true,
+        "imagePath": null,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "81f62491-4809-444e-86be-9ce8eb6732b5",
+        "rowRank": 9687500,
+        "label": "newRow",
+        "isRow": true,
+        "isHeader": true,
+        "imagePath": null,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "7d3189a9-34e6-47f5-b708-3efd944ee5fe",
+        "rowRank": 5000000,
+        "columnRank": 5000000,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "02c58321-6983-435a-9e9a-5fc2d29f6f92",
+        "rowRank": 5000000,
+        "columnRank": 7500000,
+        "isChecked": true,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "7566e911-375a-4623-8c94-908c5f97a4dc",
+        "rowRank": 5000000,
+        "columnRank": 8750000,
+        "isChecked": true,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "81c1068f-1b98-47f9-a656-bfa2d0c9f1e6",
+        "rowRank": 5000000,
+        "columnRank": 9843750,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "8f0628d2-8633-45ae-9fc8-4bdff4630a1e",
+        "rowRank": 7500000,
+        "columnRank": 5000000,
+        "isChecked": true,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "5592d890-6f61-4456-93c1-3718ba655135",
+        "rowRank": 7500000,
+        "columnRank": 7500000,
+        "isChecked": true,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "91ca8034-d734-4662-8376-32cbc835167b",
+        "rowRank": 7500000,
+        "columnRank": 8750000,
+        "isChecked": true,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "0293c50f-d27a-45f2-8b4a-9b4037dea956",
+        "rowRank": 7500000,
+        "columnRank": 9843750,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "0056b105-06f1-4831-a1dd-804751bf014d",
+        "rowRank": 8750000,
+        "columnRank": 5000000,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "eab9052c-856f-4e00-b6aa-47b7dac0cdce",
+        "rowRank": 8750000,
+        "columnRank": 7500000,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "914f3900-5675-4c08-8b76-31cce0787442",
+        "rowRank": 8750000,
+        "columnRank": 8750000,
+        "isChecked": true,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "81a96fd4-3a64-48a7-91fa-8b1033611689",
+        "rowRank": 8750000,
+        "columnRank": 9843750,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "e6c5cc5d-bb1f-486b-b3f3-fd68fd1cbe31",
+        "rowRank": 9375000,
+        "columnRank": 5000000,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "2f9a68f9-ef53-4522-a08c-34fa362959ac",
+        "rowRank": 9375000,
+        "columnRank": 7500000,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "b15ccb7f-91ae-497e-9d4f-73b17456fef5",
+        "rowRank": 9375000,
+        "columnRank": 8750000,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "3ba27893-aff8-4d03-bef7-5701f3189469",
+        "rowRank": 9375000,
+        "columnRank": 9843750,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "f9e5801d-c24c-498e-af7e-0e65c5be8879",
+        "columnRank": 5000000,
+        "rowRank": 9687500,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "5591c72e-71fe-4d4a-8ffe-1d51a00aa467",
+        "columnRank": 7500000,
+        "rowRank": 9687500,
+        "isChecked": true,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "2e59f053-66f7-4154-96c7-fd12d4d390fc",
+        "columnRank": 8750000,
+        "rowRank": 9687500,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    },
+    {
+        "_id": "c372cc17-2988-46b4-a78f-275cdb061c95",
+        "rowRank": 9687500,
+        "columnRank": 9843750,
+        "isChecked": false,
+        "questionnaireId": "6252e096-5095-4430-94ac-0614c8e167e4"
+    }
+]

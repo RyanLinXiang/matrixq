@@ -1,0 +1,13 @@
+[
+    {
+        "_id": "6252e096-5095-4430-94ac-0614c8e167e4",
+        "title": "Title of the question",
+        "numberOfRows": 5,
+        "numberOfColumns": 4,
+        "numberOfImagesUploaded": 6,
+        "longestRowLabelLength": 4,
+        "longestColumnLabelLength": 7,
+        "type": "matrix",
+        "slug": "matrix-01"
+    }
+]
