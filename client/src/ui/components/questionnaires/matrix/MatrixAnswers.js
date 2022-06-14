@@ -199,6 +199,12 @@ const MatrixAnswers = ({
       answersUnsorted: updatedAnswers
     });
     setNumberOfColumns(updatedColumnHeaders.length);
+    setNumberOfImagesUploaded(
+      getNumberOfUploadedImages({
+        columnHeaders: updatedColumnHeaders,
+        rowHeaders
+      })
+    );
   };
 
   const handleDeleteRow = (rank) => {
@@ -214,6 +220,12 @@ const MatrixAnswers = ({
       answersUnsorted: updatedAnswers
     });
     setNumberOfRows(updatedRowHeaders.length);
+    setNumberOfImagesUploaded(
+      getNumberOfUploadedImages({
+        columnHeaders,
+        rowHeaders: updatedRowHeaders
+      })
+    );
   };
 
   const handleSubmit = () => {
@@ -305,11 +317,8 @@ const MatrixAnswers = ({
             }
           />
         ))}
-        <tr
-          colSpan={columnHeaders.length + 1}
-          className="MatrixAnswers-Buttons"
-        >
-          <td>
+        <tr className="MatrixAnswers-Buttons">
+          <td colSpan={columnHeaders.length + 1}>
             <SubmitButton
               label={wordings.saveButtonLabel}
               handleClick={handleSubmit}

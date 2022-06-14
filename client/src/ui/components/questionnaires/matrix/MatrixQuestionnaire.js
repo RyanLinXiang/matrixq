@@ -7,6 +7,12 @@ import Summary from "./Summary";
 import useSubmit from "../../../hooks/useSubmit";
 import apiUrls from "../../../../domain/api/index";
 
+const { REACT_APP_LANGUAGE } = process.env;
+
+const {
+  questionnaire: wordings
+} = require(`../../../languages/${REACT_APP_LANGUAGE}.json`);
+
 const MatrixQuestionnaire = ({ apiUrl }) => {
   const { isLoading, data: questionnaire = {} } = useFetch({ url: apiUrl });
   const { submit } = useSubmit();
@@ -59,12 +65,26 @@ const MatrixQuestionnaire = ({ apiUrl }) => {
 
   return (
     <div className="MatrixQuestionnaire">
-      <MatrixAnswers
-        questionnaireId={questionnaire._id}
-        handlersForChangingStatistics={handlersForChangingStatistics}
-        handleQuestionnaireSubmit={handleSubmit}
-      />
-      <Summary statistics={statistics} />
+      <div className="MatrixQuestionnaire-EditionView">
+        <h3 className="MatrixQuestionnaire-EditionViewHeader">
+          {wordings.editionView}
+        </h3>
+        <div className="MatrixQuestionnaire-Title">{questionnaire.title}</div>
+        <MatrixAnswers
+          questionnaireId={questionnaire._id}
+          handlersForChangingStatistics={handlersForChangingStatistics}
+          handleQuestionnaireSubmit={handleSubmit}
+        />
+      </div>
+      <div className="MatrixQuestionnaire-SummaryView">
+        <h3 lassName="MatrixQuestionnaire-SummaryViewHeader">
+          {wordings.summaryView}
+        </h3>
+        <div className="MatrixQuestionnaire-StatisticsTitle">
+          {wordings.statisticsTitle}
+        </div>
+        <Summary statistics={statistics} />
+      </div>
     </div>
   );
 };

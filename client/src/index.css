@@ -13,14 +13,15 @@ code {
 }
 
 #root {
+  padding: 2vw;
   display: flex;
   justify-content: center;
 }
 
 .MatrixQuestionnaire {
   display: flex;
-  min-width: 800px;
-  max-width: 800px;
+  min-width: 1024px;
+  max-width: 1024px;
   flex-wrap: wrap;
 }
 
@@ -60,7 +61,8 @@ code {
 
 .Summary {
   font-size: 14px;
-  margin-left: 5%
+  margin-left: 1em;
+  padding: 1em
 }
 
 .Summary-Statistic {
@@ -73,6 +75,11 @@ code {
 
 .MatrixAnswers-Row {
   width: 100%;
+}
+
+.MatrixAnswers-RowHeader {
+  display: flex;
+  align-items: center;
 }
 
 .MatrixAnswers-RowTools {
@@ -94,8 +101,7 @@ code {
 }
 
 .MatrixAnswers-Buttons {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .AddColumnOrRow {
@@ -108,7 +114,8 @@ code {
 }
 
 .DeleteColumnOrRow {
-  text-align: left
+  text-align: left;
+  font-size: 1em
 }
 
 .DeleteColumnOrRow-Label {
@@ -117,8 +124,14 @@ code {
 }
 
 .Upload {
-  text-align: center;
-  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  margin-right: 0.5em
+}
+
+.InputUpload {
+  width: 5vw;
+  height: 5vw;
 }
 
 .InputUpload > input[type=file] {
@@ -126,6 +139,39 @@ code {
 }
 
 .InputUpload-Button {
-  width: 4vw;
-  height: 4vw
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding: 0;
+  margin: 0
+}
+
+.InputUpload-Image {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding: 0;
+  margin: 0
+}
+
+.StatisticValue {
+  font-weight: bold
+}
+
+.MatrixQuestionnaire-Title {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.MatrixQuestionnaire-StatisticsTitle {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.MatrixQuestionnaire-EditionViewHeader {
+  text-align: center;
+}
+
+.MatrixQuestionnaire-SummaryViewHeader {
+  text-align: center;
 }

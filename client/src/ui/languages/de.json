@@ -11,5 +11,10 @@
     },
     "upload": {
         "imageAlt": "Bild hochladen"
+    },
+    "questionnaire": {
+        "statisticsTitle": "Summary",
+        "editionView": "Question Edition View",
+        "summaryView": "Question Summary View"
     }
 }

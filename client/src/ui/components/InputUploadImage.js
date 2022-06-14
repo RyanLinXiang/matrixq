@@ -37,14 +37,14 @@ const InputUploadImage = ({ id, handleChange, imagePath }) => {
           src={uploadedFile || imagePath}
           alt={wordings.imageAlt}
           onClick={() => fileInputRef.current.click()}
-          className="InputUpload-Button"
+          className="InputUpload-Image"
         />
       ) : (
         <button
           onClick={() => fileInputRef.current.click()}
           className="InputUpload-Button"
         >
-          +
+          +{" "}
         </button>
       )}
     </div>

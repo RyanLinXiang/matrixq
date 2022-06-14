@@ -22,28 +22,36 @@ const Row = ({
 }) => (
   <tr className="MatrixAnswers-Row">
     <td>
-      <div className="Upload">
-        <InputUploadImage
-          id={id}
-          imagePath={imagePath}
-          handleChange={handleUploadFiles}
-        />
-      </div>
-      <div className="MatrixAnswers-RowLabel">
-        <Input id={id} label={label} handleChange={handleEditRowHeaderLabel} />
-      </div>
-      <div className="MatrixAnswers-RowTools">
-        <DeleteColumnOrRow handleClick={() => handleDeleteRow(rowRank)} />
-        <AddColumnOrRow
-          handleClick={() =>
-            handleAddRow(
-              getRank({
-                previousRank,
-                nextRank
-              })
-            )
-          }
-        />
+      <div className="MatrixAnswers-RowHeader">
+        <div className="Upload">
+          <InputUploadImage
+            id={id}
+            imagePath={imagePath}
+            handleChange={handleUploadFiles}
+          />
+        </div>
+        <div>
+          <div className="MatrixAnswers-RowLabel">
+            <Input
+              id={id}
+              label={label}
+              handleChange={handleEditRowHeaderLabel}
+            />
+          </div>
+          <div className="MatrixAnswers-RowTools">
+            <DeleteColumnOrRow handleClick={() => handleDeleteRow(rowRank)} />
+            <AddColumnOrRow
+              handleClick={() =>
+                handleAddRow(
+                  getRank({
+                    previousRank,
+                    nextRank
+                  })
+                )
+              }
+            />
+          </div>
+        </div>
       </div>
     </td>
 
