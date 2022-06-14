@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 code {
@@ -20,75 +19,99 @@ code {
 
 .MatrixQuestionnaire {
   display: flex;
-  width: 800px;
+  min-width: 800px;
+  max-width: 800px;
+  flex-wrap: wrap;
 }
 
 .MatrixAnswers {
-  width: 50%;
-  border-right: 1px solid black 
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.MatrixAnswers thead tr {
+  background-color: #f3f3f3;
+  color: #ffffff;
+  text-align: left;
+}
+
+.MatrixAnswers td {
+  padding: 5px;
+}
+
+.MatrixAnswers tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.MatrixAnswers tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
 }
 
 .MatrixAnswers-ColumnHeaders .Input input, .MatrixAnswers-Row .Input input {
   font-style: italic;
   border: none;
-  width: 50px
+  width: 75px;
+  box-sizing: border-box;
 }
 
 .MatrixAnswers-ColumnHeaders .Input input:focus, .MatrixAnswers-Row .Input input:focus {
   font-style: normal;
 }
 
-.Summary{
-  width: 50%;
-  margin-left: 10%
+.Summary {
+  font-size: 14px;
+  margin-left: 5%
 }
 
 .Summary-Statistic {
   width: 100%
 }
 
-.MatrixAnswers-ColumnHeaders {
-  display: flex;
-  width: 50%;
-  margin-left: 100px
-}
-
 .MatrixAnswers-ColumnHeader {
   display: flex;
-  width: 50px;
 }
 
 .MatrixAnswers-Row {
-  display: flex;
-  width: 50%;
-  justify-items: center;
-  align-items: center
+  width: 100%;
 }
 
-.MatrixAnswers-RowLabel {
-  display: flex;
-  width: 100px;
-  justify-items: center;
-  align-items: center;
+.MatrixAnswers-RowTools {
+  display: flex
 }
 
 .MatrixAnswers-Options {
-  display: flex;
-  width: 70%;
+  width: 100%;
   justify-items: center;
   align-items: center
 }
 
 .MatrixAnswers-Option {
-  display: flex;
   justify-items: center;
   align-items: center;
   width: 50px;
-  padding: 10px
+  padding: 10px;
+  padding-top: 0
+}
+
+.MatrixAnswers-Buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .AddColumnOrRow {
+  text-align: left
+}
+
+.AddColumnOrRow-Label {
   cursor: pointer;
   color: green
 }
 
+.DeleteColumnOrRow {
+  text-align: left
+}
+
+.DeleteColumnOrRow-Label {
+  cursor: pointer;
+  color: red
+}
