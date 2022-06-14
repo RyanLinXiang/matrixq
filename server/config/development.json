@@ -14,8 +14,8 @@
         "imagePath": "uploads"
     },
     "db": {
-        "mongoUri": "mongodb://admin:admin@localhost:27017/?authSource=questions",
-        "dbName": "quantilope",
+        "mongoUri": "mongodb://admin:admin@localhost:27017/?authSource=matrixq",
+        "dbName": "matrixq",
         "collections": {
             "questionnaires": "questionnaires",
             "answers": "answers"
