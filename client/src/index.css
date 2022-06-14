@@ -115,3 +115,17 @@ code {
   cursor: pointer;
   color: red
 }
+
+.Upload {
+  text-align: center;
+  font-size: 2em;
+}
+
+.InputUpload > input[type=file] {
+  display: none
+}
+
+.InputUpload-Button {
+  width: 4vw;
+  height: 4vw
+}
