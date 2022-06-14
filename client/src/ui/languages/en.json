@@ -7,10 +7,10 @@
         "longestColumnLabelLength": "Longest column label"
     },
     "form": {
-        "saveButtonLabel": "Speichern"
+        "saveButtonLabel": "Save"
     },
     "upload": {
-        "imageAlt": "Bild hochladen"
+        "imageAlt": "Upload image"
     },
     "questionnaire": {
         "statisticsTitle": "Summary",

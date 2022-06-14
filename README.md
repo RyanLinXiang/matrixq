@@ -22,3 +22,7 @@ After that go into the `./server` root directory and run:
 
 to run the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## Handling
+
+All your inputs in the matrix questionnaire can be saved to the datebase by pressing the "Save" button so that the data are preloaded when you refresh the page.
