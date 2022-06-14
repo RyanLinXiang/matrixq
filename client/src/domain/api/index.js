@@ -1,8 +1,12 @@
-const { REACT_APP_API_URL } = process.env
+const { REACT_APP_API_URL } = process.env;
 
 const apiUrls = {
-    "getQuestionnairesById": (id) => `${REACT_APP_API_URL}/questionnaires/${id}`,
-    "getAnswersByQuestionnaireId": (questionnaireId) => `${REACT_APP_API_URL}/answers/${questionnaireId}`
-}
+  getQuestionnaire: (id) => `${REACT_APP_API_URL}/questionnaires/${id}`,
+  getAnswers: (questionnaireId) =>
+    `${REACT_APP_API_URL}/answers/${questionnaireId}`,
+  updateQuestionnaire: (id) => `${REACT_APP_API_URL}/questionnaires/${id}`,
+  updateAnswers: (questionnaireId) =>
+    `${REACT_APP_API_URL}/answers/${questionnaireId}`
+};
 
-export default apiUrls
+export default apiUrls;

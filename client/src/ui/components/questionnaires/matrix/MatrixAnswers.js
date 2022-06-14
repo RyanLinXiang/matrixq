@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import useApi from "../../../hooks/useApi";
 import { isEmpty } from "lodash";
 import {
   isColumnHeader,
@@ -18,7 +17,10 @@ import {
 } from "./helpers";
 import ColumnHeader from "./ColumnHeader";
 import Row from "./Row";
-import Button from "../../Button";
+import SubmitButton from "../../SubmitButton";
+import apiUrls from "../../../../domain/api";
+import useSubmit from "../../../hooks/useSubmit";
+import useFetch from "../../../hooks/useFetch";
 
 const { REACT_APP_LANGUAGE } = process.env;
 
@@ -28,16 +30,21 @@ const {
 
 const MatrixAnswers = ({
   questionnaireId,
-  apiUrl,
   handlersForChangingStatistics: {
     setNumberOfRows,
     setNumberOfColumns,
     setNumberOfImagesUploaded,
     setLongestRowLabelLength,
     setLongestColumnLabelLength
-  }
+  },
+  handleQuestionnaireSubmit
 }) => {
-  const { isLoading, data = [] } = useApi({ url: apiUrl });
+  const { isLoading, data = [] } = useFetch({
+    url: apiUrls.getAnswers(questionnaireId)
+  });
+
+  const { submit } = useSubmit();
+
   const [columnHeaders, setColumnHeaders] = useState([]);
   const [rowHeaders, setRowHeaders] = useState([]);
   const [answers, setAnswers] = useState([]);
@@ -202,6 +209,14 @@ const MatrixAnswers = ({
     setNumberOfRows(updatedRowHeaders.length);
   };
 
+  const handleSubmit = () => {
+    submit({
+      url: apiUrls.updateAnswers(questionnaireId),
+      docs: columnHeaders.concat(rowHeaders, answers)
+    });
+    handleQuestionnaireSubmit();
+  };
+
   return (
     <table className="MatrixAnswers">
       <thead>
@@ -250,6 +265,17 @@ const MatrixAnswers = ({
             }
           />
         ))}
+        <tr
+          colSpan={columnHeaders.length + 1}
+          className="MatrixAnswers-Buttons"
+        >
+          <td>
+            <SubmitButton
+              label={wordings.saveButtonLabel}
+              handleClick={handleSubmit}
+            />
+          </td>
+        </tr>
       </tbody>
     </table>
   );

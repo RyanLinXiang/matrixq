@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
-import useApi from "../../../hooks/useApi";
-import apiUrls from "../../../../domain/api";
+import useFetch from "../../../hooks/useFetch";
+
 import MatrixAnswers from "./MatrixAnswers";
 import { isEmpty } from "lodash";
 import Summary from "./Summary";
+import useSubmit from "../../../hooks/useSubmit";
+import apiUrls from "../../../../domain/api/index";
 
 const MatrixQuestionnaire = ({ apiUrl }) => {
-  const { isLoading, data: questionnaire = {} } = useApi({ url: apiUrl });
+  const { isLoading, data: questionnaire = {} } = useFetch({ url: apiUrl });
+  const { submit } = useSubmit();
 
   const [numberOfRows, setNumberOfRows] = useState(null);
   const [numberOfColumns, setNumberOfColumns] = useState(null);
@@ -47,12 +50,19 @@ const MatrixQuestionnaire = ({ apiUrl }) => {
     setLongestColumnLabelLength
   };
 
+  const handleSubmit = () => {
+    submit({
+      url: apiUrls.updateQuestionnaire(questionnaire._id),
+      docs: [statistics]
+    });
+  };
+
   return (
     <div className="MatrixQuestionnaire">
       <MatrixAnswers
         questionnaireId={questionnaire._id}
-        apiUrl={apiUrls.getAnswersByQuestionnaireId(questionnaire._id)}
         handlersForChangingStatistics={handlersForChangingStatistics}
+        handleQuestionnaireSubmit={handleSubmit}
       />
       <Summary statistics={statistics} />
     </div>

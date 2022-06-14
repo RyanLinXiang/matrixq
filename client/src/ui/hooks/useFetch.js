@@ -1,20 +1,11 @@
 import { useEffect, useState } from "react";
 
-const useApi = ({ url, method = "GET", params = {} }) => {
+const useFetch = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
 
-  const fetchOptions =
-    method === "GET"
-      ? {}
-      : {
-          method,
-          body: params,
-          headers: { "Content-Type": "application/json" },
-        };
-
   const callApi = () => {
-    fetch(url, fetchOptions)
+    fetch(url)
       .then((response) => response.json())
       .then((json) => {
         setIsLoading(false);
@@ -29,4 +20,4 @@ const useApi = ({ url, method = "GET", params = {} }) => {
   return { isLoading, data };
 };
 
-export default useApi;
+export default useFetch;

@@ -1,15 +1,31 @@
-import { findMany } from "../src/components/answers/Model.js"
+import {
+  deleteMany,
+  findMany,
+  insertMany
+} from "../src/components/answers/Model.js";
 
-async function getById(req, res) {
-   const { questionnaireId } = req.params
+async function getByQuestionnaireId(req, res) {
+  const { questionnaireId } = req.params;
 
-   const result = await findMany({ key: "questionnaireId", value: questionnaireId })
+  const result = await findMany({
+    key: "questionnaireId",
+    value: questionnaireId
+  });
 
-   return res
-   .status(200)
-   .json(result);
+  return res.status(200).json(result);
+}
+
+async function recreate(req, res) {
+  const { questionnaireId } = req.params;
+  const { docs } = req.body;
+
+  await deleteMany({ key: "questionnaireId", value: questionnaireId });
+  await insertMany({ docs });
+
+  return res.status(200);
 }
 
 export default {
-   getById
-}
+  getByQuestionnaireId,
+  recreate
+};
