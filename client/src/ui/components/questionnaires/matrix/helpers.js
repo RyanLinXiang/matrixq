@@ -84,3 +84,17 @@ export const createNewRowAnswers = ({
 
   return answers;
 };
+
+export const getNumberOfUploadedImages = ({ columnHeaders, rowHeaders }) =>
+  columnHeaders.filter((header) => Boolean(header.imagePath)).length +
+  rowHeaders.filter((header) => Boolean(header.imagePath)).length;
+
+export const createFormDataFromFiles = ({ files }) => {
+  const formData = new FormData();
+
+  for (const { file, fileName } of files) {
+    formData.append("file", file, fileName);
+  }
+
+  return formData;
+};

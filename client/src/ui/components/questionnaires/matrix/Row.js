@@ -4,6 +4,7 @@ import Input from "../../Input";
 import AddColumnOrRow from "./AddColumnOrRow";
 import { getRank } from "./helpers";
 import DeleteColumnOrRow from "./DeleteColumnOrRow";
+import InputUploadImage from "../../InputUploadImage";
 
 const Row = ({
   id,
@@ -13,12 +14,21 @@ const Row = ({
   handleEditRowHeaderLabel,
   handleAddRow,
   handleDeleteRow,
+  handleUploadFiles,
+  imagePath,
   rowRank,
   previousRank,
   nextRank
 }) => (
   <tr className="MatrixAnswers-Row">
     <td>
+      <div className="Upload">
+        <InputUploadImage
+          id={id}
+          imagePath={imagePath}
+          handleChange={handleUploadFiles}
+        />
+      </div>
       <div className="MatrixAnswers-RowLabel">
         <Input id={id} label={label} handleChange={handleEditRowHeaderLabel} />
       </div>

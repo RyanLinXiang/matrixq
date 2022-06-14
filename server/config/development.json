@@ -1,16 +1,24 @@
 {
-    "routes" : {
+    "routes": {
         "api": "/api"
     },
-    "server": { 
-        "port": 4000
-    },   
+    "server": {
+        "port": 4000,
+        "allowedMimeTypes": {
+            "img/png": "png",
+            "image/png": "png"
+        }
+    },
+    "client": {
+        "publicFolder": "../client/public/uploads",
+        "imagePath": "uploads"
+    },
     "db": {
-     "mongoUri": "mongodb://admin:admin@localhost:27017/?authSource=questions",
-     "dbName": "quantilope",
-     "collections": {
-        "questionnaires": "questionnaires",
-        "answers": "answers"
-     }
+        "mongoUri": "mongodb://admin:admin@localhost:27017/?authSource=questions",
+        "dbName": "quantilope",
+        "collections": {
+            "questionnaires": "questionnaires",
+            "answers": "answers"
+        }
     }
 }

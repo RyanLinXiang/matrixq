@@ -8,5 +8,8 @@
     },
     "form": {
         "saveButtonLabel": "Speichern"
+    },
+    "upload": {
+        "imageAlt": "Bild hochladen"
     }
 }

@@ -53,7 +53,7 @@ const MatrixQuestionnaire = ({ apiUrl }) => {
   const handleSubmit = () => {
     submit({
       url: apiUrls.updateQuestionnaire(questionnaire._id),
-      docs: [statistics]
+      data: [statistics]
     });
   };
 

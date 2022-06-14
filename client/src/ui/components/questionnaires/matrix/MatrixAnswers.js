@@ -13,7 +13,9 @@ import {
   createNewColumnHeader,
   createNewRowHeader,
   createNewColumnAnswers,
-  createNewRowAnswers
+  createNewRowAnswers,
+  getNumberOfUploadedImages,
+  createFormDataFromFiles
 } from "./helpers";
 import ColumnHeader from "./ColumnHeader";
 import Row from "./Row";
@@ -22,7 +24,11 @@ import apiUrls from "../../../../domain/api";
 import useSubmit from "../../../hooks/useSubmit";
 import useFetch from "../../../hooks/useFetch";
 
-const { REACT_APP_LANGUAGE } = process.env;
+const {
+  REACT_APP_LANGUAGE,
+  REACT_APP_PUBLIC_UPLOAD_FOLDER,
+  REACT_APP_IMAGE_FILE_EXT
+} = process.env;
 
 const {
   form: wordings
@@ -49,6 +55,7 @@ const MatrixAnswers = ({
   const [rowHeaders, setRowHeaders] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [answersInChunks, setAnswersInChunks] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const sortDataByRank = ({
     columnHeadersUnsorted,
@@ -212,9 +219,38 @@ const MatrixAnswers = ({
   const handleSubmit = () => {
     submit({
       url: apiUrls.updateAnswers(questionnaireId),
-      docs: columnHeaders.concat(rowHeaders, answers)
+      data: columnHeaders.concat(rowHeaders, answers)
+    });
+    submit({
+      url: apiUrls.upload(),
+      formData: createFormDataFromFiles({ files: uploadedFiles })
     });
     handleQuestionnaireSubmit();
+  };
+
+  const handleUploadColumnHeaderImages = (newFile, id) => {
+    setUploadedFiles([...uploadedFiles, { file: newFile, fileName: id }]);
+
+    const columnHeaderToUpdate = columnHeaders.find(
+      (header) => header._id === id
+    );
+    columnHeaderToUpdate.imagePath = `${REACT_APP_PUBLIC_UPLOAD_FOLDER}/${id}.${REACT_APP_IMAGE_FILE_EXT}`;
+    setColumnHeaders([...columnHeaders]);
+    setNumberOfImagesUploaded(
+      getNumberOfUploadedImages({ columnHeaders, rowHeaders })
+    );
+  };
+
+  const handleUploadRowHeaderImages = (newFile, id) => {
+    setUploadedFiles([...uploadedFiles, { file: newFile, fileName: id }]);
+
+    const rowHeaderToUpdate = rowHeaders.find((header) => header._id === id);
+    rowHeaderToUpdate.imagePath = `${REACT_APP_PUBLIC_UPLOAD_FOLDER}/${id}.${REACT_APP_IMAGE_FILE_EXT}`;
+
+    setRowHeaders([...rowHeaders]);
+    setNumberOfImagesUploaded(
+      getNumberOfUploadedImages({ columnHeaders, rowHeaders })
+    );
   };
 
   return (
@@ -226,10 +262,12 @@ const MatrixAnswers = ({
             <ColumnHeader
               key={header._id}
               label={header.label}
+              imagePath={header.imagePath}
               handleEditColumnHeaderLabel={handleEditColumnHeaderLabel}
               id={header._id}
               handleAddColumn={handleAddColumn}
               handleDeleteColumn={handleDeleteColumn}
+              handleUploadFiles={handleUploadColumnHeaderImages}
               columnRank={header.columnRank}
               previousRank={
                 columnHeaders.length === 0 ? firstRank : header.columnRank
@@ -254,6 +292,8 @@ const MatrixAnswers = ({
             handleEditRowHeaderLabel={handleEditRowHeaderLabel}
             handleAddRow={handleAddRow}
             handleDeleteRow={handleDeleteRow}
+            handleUploadFiles={handleUploadRowHeaderImages}
+            imagePath={rowHeaders[index].imagePath}
             rowRank={rowHeaders[index].rowRank}
             previousRank={
               rowHeaders.length === 0 ? firstRank : rowHeaders[index].rowRank

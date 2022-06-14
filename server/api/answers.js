@@ -25,7 +25,12 @@ async function recreate(req, res) {
   return res.status(200);
 }
 
+async function upload(req, res) {
+  return res.status(200).send(req.files);
+}
+
 export default {
   getByQuestionnaireId,
-  recreate
+  recreate,
+  upload
 };
