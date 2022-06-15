@@ -5,7 +5,7 @@
         "numberOfRows": 5,
         "numberOfColumns": 4,
         "numberOfImagesUploaded": 6,
-        "longestRowLabelLength": 4,
+        "longestRowLabelLength": 6,
         "longestColumnLabelLength": 7,
         "type": "matrix",
         "slug": "matrix-01"

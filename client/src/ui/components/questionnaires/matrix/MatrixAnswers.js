@@ -151,6 +151,10 @@ const MatrixAnswers = ({
     });
 
     setNumberOfColumns(updatedColumnHeaders.length);
+
+    setLongestColumnLabelLength(
+      getLongestLabelLength({ headers: updatedColumnHeaders })
+    );
   };
 
   const handleAddRow = (rank) => {
@@ -182,6 +186,10 @@ const MatrixAnswers = ({
     });
 
     setNumberOfRows(updatedRowHeaders.length);
+
+    setLongestRowLabelLength(
+      getLongestLabelLength({ headers: updatedRowHeaders })
+    );
   };
 
   const handleDeleteColumn = (rank) => {
@@ -205,6 +213,9 @@ const MatrixAnswers = ({
         rowHeaders
       })
     );
+    setLongestColumnLabelLength(
+      getLongestLabelLength({ headers: updatedColumnHeaders })
+    );
   };
 
   const handleDeleteRow = (rank) => {
@@ -225,6 +236,9 @@ const MatrixAnswers = ({
         columnHeaders,
         rowHeaders: updatedRowHeaders
       })
+    );
+    setLongestRowLabelLength(
+      getLongestLabelLength({ headers: updatedRowHeaders })
     );
   };
 
