@@ -25,4 +25,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Handling
 
-All your inputs in the matrix questionnaire can be saved to the datebase by pressing the "Save" button so that the data are preloaded when you refresh the page.
+All your inputs in the matrix questionnaire can be saved to the database by pressing the "Save" button so that the data are preloaded when you refresh the page.
